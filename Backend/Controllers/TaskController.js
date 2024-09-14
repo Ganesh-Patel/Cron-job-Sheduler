@@ -1,6 +1,12 @@
 import cron from 'node-cron';
 
-export const CreateTask = () => {
+
+let tasks = [];
+export const CreateTask = (req, res) => {
+    const { name, schedule, email, message } = req.body;
+    tasks.push({ name, schedule, email, message });
+    res.send('Task created successfully');
+
 function logMessage() {
  console.log('Cron job executed at:', new Date().toLocaleString());
 }
@@ -31,5 +37,5 @@ export const stopTask = () => {
     console.log('Cron job executed at:', new Date().toLocaleString());
     }   
 
-    
+
 

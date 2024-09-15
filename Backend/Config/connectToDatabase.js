@@ -1,4 +1,5 @@
 import { set, connect } from 'mongoose';
+import dotenv from 'dotenv/config'
 
 const connectDB = async () => {
     set("strictQuery", false);

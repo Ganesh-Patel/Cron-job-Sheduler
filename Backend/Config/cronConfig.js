@@ -43,6 +43,7 @@ export const scheduleTask = async (task) => {
 export const initializeTasks = async () => {
   try {
     const tasks = await Task.find({ status: 'active' });
+    console.log('All the active taskes here ',tasks)
     tasks.forEach(task => scheduleTask(task));
     logger.info('All active tasks initialized successfully.');
   } catch (error) {
